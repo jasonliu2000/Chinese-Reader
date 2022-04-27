@@ -11,7 +11,15 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        let path = Bundle.main.path(forResource: "cc-cedict", ofType: "json")
+        let url = URL(fileURLWithPath: path!)
+        do {
+            let data = try Data(contentsOf: url)
+            let dictionaryEntries = try JSONDecoder().decode([DictionaryEntry].self, from: data)
+        } catch {
+            print(error)
+        }
     }
 
 

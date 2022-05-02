@@ -12,6 +12,7 @@ class ArticleListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var articles = Articles()
+//    var getLiveNews = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,6 +37,8 @@ class ArticleListViewController: UIViewController {
             destination.article = articles.articleArray[indexPathForSelectedRow.row]
         }
     }
+    
+    
     
 }
 

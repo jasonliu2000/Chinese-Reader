@@ -27,7 +27,11 @@ class WordDefinitionViewController: UIViewController {
         }
         
         definitionTextView.text = definitionList
-        print(definitionTextView.text)
+        //definitionTextView.textContainerInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        definitionTextView.setContentOffset(CGPoint(x: 0, y: 0), animated: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {

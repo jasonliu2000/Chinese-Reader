@@ -1,5 +1,5 @@
 //
-//  Article.swift
+//  ArticleData.swift
 //  Chinese Reader
 //
 //  Created by Jason Liu on 4/27/22.

@@ -20,21 +20,21 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ArticleCell" id="JmN-CJ-MCZ">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ArticleCell" rowHeight="75" id="JmN-CJ-MCZ" customClass="ArticleTableViewCell" customModule="Chinese_Reader" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="75"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="JmN-CJ-MCZ" id="sad-5h-EIU">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="75"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Article Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upE-rP-KVX">
-                                                    <rect key="frame" x="20" y="0.0" width="374" height="24"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全球爆不明儿童肝炎 美研究：疑似感染腺病毒" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="upE-rP-KVX">
+                                                    <rect key="frame" x="20" y="0.0" width="374" height="48"/>
                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Article Source" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Yf-91-gsy">
-                                                    <rect key="frame" x="20" y="27" width="374" height="16"/>
+                                                    <rect key="frame" x="20" y="58" width="374" height="16"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -44,12 +44,14 @@
                                                 <constraint firstAttribute="trailing" secondItem="2Yf-91-gsy" secondAttribute="trailing" constant="20" id="Fgb-oc-RLX"/>
                                                 <constraint firstItem="2Yf-91-gsy" firstAttribute="leading" secondItem="sad-5h-EIU" secondAttribute="leading" constant="20" id="Uf5-h1-Rro"/>
                                                 <constraint firstItem="upE-rP-KVX" firstAttribute="leading" secondItem="sad-5h-EIU" secondAttribute="leading" constant="20" id="Vpt-fL-pGJ"/>
-                                                <constraint firstItem="2Yf-91-gsy" firstAttribute="top" secondItem="sad-5h-EIU" secondAttribute="top" constant="27" id="a6B-F3-yWa"/>
+                                                <constraint firstItem="2Yf-91-gsy" firstAttribute="top" secondItem="upE-rP-KVX" secondAttribute="bottom" constant="10" id="a6B-F3-yWa"/>
                                                 <constraint firstItem="upE-rP-KVX" firstAttribute="top" secondItem="sad-5h-EIU" secondAttribute="top" id="eee-lG-tbu"/>
                                                 <constraint firstAttribute="trailing" secondItem="upE-rP-KVX" secondAttribute="trailing" constant="20" id="sxz-IW-kxf"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="sourceLabel" destination="2Yf-91-gsy" id="n8P-Ne-cXP"/>
+                                            <outlet property="titleLabel" destination="upE-rP-KVX" id="qAZ-9u-dzS"/>
                                             <segue destination="Nda-EK-1rl" kind="show" identifier="ShowArticle" id="jch-j4-drp"/>
                                         </connections>
                                     </tableViewCell>
@@ -65,7 +67,15 @@
                             <constraint firstItem="d7E-V3-3iN" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oMl-zT-0sx"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="4DI-zm-zIO"/>
+                    <navigationItem key="navigationItem" id="4DI-zm-zIO">
+                        <nil key="title"/>
+                        <button key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="E1i-fh-R0v">
+                            <rect key="frame" x="12" y="6.5" width="390" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" title="Chinese Reader"/>
+                        </button>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="d7E-V3-3iN" id="5rI-WS-6Yk"/>
                     </connections>
@@ -88,7 +98,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BNF-RI-ofW">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="1280"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Article Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEr-QI-Ylh">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="全球爆不明儿童肝炎 美研究：疑似感染腺病毒" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEr-QI-Ylh">
                                                 <rect key="frame" x="20" y="0.0" width="374" height="40"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="Jw5-24-HdE"/>
@@ -136,7 +146,7 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="68q-b9-ssc">
                                                 <rect key="frame" x="20" y="358.5" width="374" height="901.5"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                                <mutableString key="text">在大疆宣布暂停俄、乌业务之前，已经有很多跨国公司宣布暂停在俄罗斯的业务，声援受到俄罗斯军事侵略的乌克兰。
+                                                <string key="text">本次致信在大疆宣布暂停俄、乌业务之前，已经有很多跨国公司宣布暂停在俄罗斯的业务，声援受到俄罗斯军事侵略的乌克兰。
 本次大疆同时暂停在俄罗斯和乌克兰两国的业务之前，曾在4月21日发布另一声明表示：“大疆创新一直以来只生产民用产品，不是为军事用途设计。”
 声明中还具体指出，大疆“不推销或销售产品用于军事用途”, “不为被认定为用于军事目的的产品提供售后服务”, “反对在产品上安装武器的企图”，“拒绝对产品进行用于军事用途的定制或修改”。
 在俄罗斯入侵乌克兰后，出现双方使用大疆无人机参加军事行动的报道。
@@ -151,7 +161,7 @@
 创始人汪涛在公司寄语中说：“大疆就是个敢于说真话的孩子。” “我们坚信实干而非投机，坚信梦想而非功利。我们愿意做困难但真正有价值的事，从创始之初至今从未改变。”
 值得一提的是，本次大疆发布的暂停俄、乌业务的声明公布在欧盟总部所在地比利时的英文网站上，其美、英等国的英文网站以及中文网站上并没有相关声明。
 大疆公关总监谢阗地在其微博中公布了这一声明并解释说：“这件事本仅需告知涉及俄乌业务的海外合作伙伴。是昨晚发现已经有微博网友开始讨论了，且引用的信息不准确，才补充中文的。这是大疆内部复审的小事，不足挂齿。”
-2021年年底，因新疆人权问题，大疆被美国列为受制裁的中国科技公司。</mutableString>
+2021年年底，因新疆人权问题，大疆被美国列为受制裁的中国科技公司。</string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -199,6 +209,7 @@
                     <connections>
                         <outlet property="imageView" destination="fwD-WX-ktY" id="O5I-6s-YbS"/>
                         <outlet property="publishedDateLabel" destination="hsR-vV-WHz" id="SRQ-wG-Q4y"/>
+                        <outlet property="scrollView" destination="QDn-A8-MBk" id="JjW-HU-b7h"/>
                         <outlet property="sourceLabel" destination="4ky-7S-YLe" id="m2m-sR-JOZ"/>
                         <outlet property="textView" destination="68q-b9-ssc" id="e0W-r5-I6z"/>
                         <outlet property="titleLabel" destination="lEr-QI-Ylh" id="GJu-7B-ci0"/>
@@ -206,7 +217,54 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGE-Rm-UF9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1847.826086956522" y="42.857142857142854"/>
+            <point key="canvasLocation" x="1872" y="43"/>
+        </scene>
+        <!--Word Definition View Controller-->
+        <scene sceneID="iht-IJ-sj6">
+            <objects>
+                <viewController storyboardIdentifier="123" id="XXV-qA-oFj" customClass="WordDefinitionViewController" customModule="Chinese_Reader" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sCB-0A-WKU">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="pinyin" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vvt-v3-TJg">
+                                <rect key="frame" x="349" y="44" width="45" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QL3-RX-oTp">
+                                <rect key="frame" x="20" y="82" width="374" height="144"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Word" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0pJ-EC-JTK">
+                                <rect key="frame" x="20" y="44" width="62" height="30"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="zz4-a0-qx2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="zz4-a0-qx2" firstAttribute="trailing" secondItem="vvt-v3-TJg" secondAttribute="trailing" constant="20" id="GD6-xD-71i"/>
+                            <constraint firstItem="0pJ-EC-JTK" firstAttribute="leading" secondItem="zz4-a0-qx2" secondAttribute="leading" constant="20" id="IYP-Cs-ekT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="definitionTextView" destination="QL3-RX-oTp" id="End-s4-Lpw"/>
+                        <outlet property="pinyinLabel" destination="vvt-v3-TJg" id="fyf-LW-Cul"/>
+                        <outlet property="wordLabel" destination="0pJ-EC-JTK" id="Ph1-lD-Of5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hww-P8-RUZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2947.826086956522" y="42.857142857142854"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="VXV-Si-TRP">
